@@ -1,33 +1,84 @@
 @tailwind base;
-@tailwind components;
-@tailwind utilities;
+  @tailwind components;
+  @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
+  @layer base {
+    :root {
+      --background: 0 0% 100%;
+      --foreground: 20 14.3% 4.1%;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+      --card: 0 0% 100%;
+      --card-foreground: 20 14.3% 4.1%;
+
+      --popover: 0 0% 100%;
+      --popover-foreground: 20 14.3% 4.1%;
+
+      --primary: 24 9.8% 10%;
+      --primary-foreground: 60 9.1% 97.8%;
+
+      --secondary: 60 4.8% 95.9%;
+      --secondary-foreground: 24 9.8% 10%;
+
+      --muted: 60 4.8% 95.9%;
+      --muted-foreground: 25 5.3% 44.7%;
+
+      --accent: 60 4.8% 95.9%;
+      --accent-foreground: 24 9.8% 10%;
+
+      --destructive: 0 84.2% 60.2%;
+      --destructive-foreground: 60 9.1% 97.8%;
+
+      --border: 20 5.9% 90%;
+      --input: 20 5.9% 90%;
+      --ring: 20 14.3% 4.1%;
+
+      --radius: 0.5rem;
+    }
+
+    .dark {
+      --background: 20 14.3% 4.1%;
+      --foreground: 60 9.1% 97.8%;
+
+      --card: 20 14.3% 4.1%;
+      --card-foreground: 60 9.1% 97.8%;
+
+      --popover: 20 14.3% 4.1%;
+      --popover-foreground: 60 9.1% 97.8%;
+
+      --primary: 60 9.1% 97.8%;
+      --primary-foreground: 24 9.8% 10%;
+
+      --secondary: 12 6.5% 15.1%;
+      --secondary-foreground: 60 9.1% 97.8%;
+
+      --muted: 12 6.5% 15.1%;
+      --muted-foreground: 24 5.4% 63.9%;
+
+      --accent: 12 6.5% 15.1%;
+      --accent-foreground: 60 9.1% 97.8%;
+
+      --destructive: 0 62.8% 30.6%;
+      --destructive-foreground: 60 9.1% 97.8%;
+
+      --border: 12 6.5% 15.1%;
+      --input: 12 6.5% 15.1%;
+      --ring: 24 5.7% 82.9%;
+    }
   }
-}
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  @layer base {
+    * {
+      @apply border-border;
+    }
+    body {
+      @apply bg-background text-foreground;
+    }
   }
+
+  .backcons{
+  
+    background-color: #00ADB5;
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 100 60'%3E%3Cg %3E%3Crect fill='%2300ADB5' width='11' height='11'/%3E%3Crect fill='%2315aeb6' x='10' width='11' height='11'/%3E%3Crect fill='%2321afb7' y='10' width='11' height='11'/%3E%3Crect fill='%2329b0b8' x='20' width='11' height='11'/%3E%3Crect fill='%2331b2b9' x='10' y='10' width='11' height='11'/%3E%3Crect fill='%2337b3ba' y='20' width='11' height='11'/%3E%3Crect fill='%233db4bb' x='30' width='11' height='11'/%3E%3Crect fill='%2343b5bc' x='20' y='10' width='11' height='11'/%3E%3Crect fill='%2348b6bd' x='10' y='20' width='11' height='11'/%3E%3Crect fill='%234db7be' y='30' width='11' height='11'/%3E%3Crect fill='%2351b8be' x='40' width='11' height='11'/%3E%3Crect fill='%2356b9bf' x='30' y='10' width='11' height='11'/%3E%3Crect fill='%235abac0' x='20' y='20' width='11' height='11'/%3E%3Crect fill='%235ebcc1' x='10' y='30' width='11' height='11'/%3E%3Crect fill='%2362bdc2' y='40' width='11' height='11'/%3E%3Crect fill='%2366bec3' x='50' width='11' height='11'/%3E%3Crect fill='%236abfc4' x='40' y='10' width='11' height='11'/%3E%3Crect fill='%236dc0c5' x='30' y='20' width='11' height='11'/%3E%3Crect fill='%2371c1c6' x='20' y='30' width='11' height='11'/%3E%3Crect fill='%2375c2c7' x='10' y='40' width='11' height='11'/%3E%3Crect fill='%2378c3c8' y='50' width='11' height='11'/%3E%3Crect fill='%237cc4c9' x='60' width='11' height='11'/%3E%3Crect fill='%237fc6ca' x='50' y='10' width='11' height='11'/%3E%3Crect fill='%2382c7cb' x='40' y='20' width='11' height='11'/%3E%3Crect fill='%2386c8cc' x='30' y='30' width='11' height='11'/%3E%3Crect fill='%2389c9cd' x='20' y='40' width='11' height='11'/%3E%3Crect fill='%238ccace' x='10' y='50' width='11' height='11'/%3E%3Crect fill='%238fcbcf' x='70' width='11' height='11'/%3E%3Crect fill='%2393ccd0' x='60' y='10' width='11' height='11'/%3E%3Crect fill='%2396cdd1' x='50' y='20' width='11' height='11'/%3E%3Crect fill='%2399ced2' x='40' y='30' width='11' height='11'/%3E%3Crect fill='%239cd0d3' x='30' y='40' width='11' height='11'/%3E%3Crect fill='%239fd1d4' x='20' y='50' width='11' height='11'/%3E%3Crect fill='%23a2d2d5' x='80' width='11' height='11'/%3E%3Crect fill='%23a5d3d6' x='70' y='10' width='11' height='11'/%3E%3Crect fill='%23a8d4d6' x='60' y='20' width='11' height='11'/%3E%3Crect fill='%23abd5d7' x='50' y='30' width='11' height='11'/%3E%3Crect fill='%23aed6d8' x='40' y='40' width='11' height='11'/%3E%3Crect fill='%23b1d7d9' x='30' y='50' width='11' height='11'/%3E%3Crect fill='%23b4d8da' x='90' width='11' height='11'/%3E%3Crect fill='%23b7d9db' x='80' y='10' width='11' height='11'/%3E%3Crect fill='%23badadc' x='70' y='20' width='11' height='11'/%3E%3Crect fill='%23bddcdd' x='60' y='30' width='11' height='11'/%3E%3Crect fill='%23c0ddde' x='50' y='40' width='11' height='11'/%3E%3Crect fill='%23c3dedf' x='40' y='50' width='11' height='11'/%3E%3Crect fill='%23c6dfe0' x='90' y='10' width='11' height='11'/%3E%3Crect fill='%23c9e0e1' x='80' y='20' width='11' height='11'/%3E%3Crect fill='%23cce1e2' x='70' y='30' width='11' height='11'/%3E%3Crect fill='%23cfe2e3' x='60' y='40' width='11' height='11'/%3E%3Crect fill='%23d2e3e4' x='50' y='50' width='11' height='11'/%3E%3Crect fill='%23d4e4e5' x='90' y='20' width='11' height='11'/%3E%3Crect fill='%23d7e5e6' x='80' y='30' width='11' height='11'/%3E%3Crect fill='%23dae6e7' x='70' y='40' width='11' height='11'/%3E%3Crect fill='%23dde8e8' x='60' y='50' width='11' height='11'/%3E%3Crect fill='%23e0e9e9' x='90' y='30' width='11' height='11'/%3E%3Crect fill='%23e3eaea' x='80' y='40' width='11' height='11'/%3E%3Crect fill='%23e6ebeb' x='70' y='50' width='11' height='11'/%3E%3Crect fill='%23e8ecec' x='90' y='40' width='11' height='11'/%3E%3Crect fill='%23ebeded' x='80' y='50' width='11' height='11'/%3E%3Crect fill='%23EEEEEE' x='90' y='50' width='11' height='11'/%3E%3C/g%3E%3C/svg%3E");
+background-attachment: fixed;
+background-size: cover;
 }
