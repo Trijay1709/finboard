@@ -9,7 +9,7 @@ function Layout({ children }: LayoutProps) {
   return (
     <section>
       <Header />
-      {children}
+      <div className="px-3 lg:px-8">{children}</div>
     </section>
   );
 }

@@ -4,6 +4,9 @@ import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import localFont from "next/font/local";
 import { ThemeProvider } from "@/components/providers/themeprovider";
+import { QueryProviders } from "@/components/providers/queryproviders";
+import { Sheetproviders } from "@/components/providers/sheetproviders";
+import { Toaster } from "@/components/ui/sonner";
 
 const inter = Inter({ subsets: ["latin"] });
 const roboto = Roboto_Mono({ subsets: ["latin"] });
@@ -31,7 +34,11 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            {children}
+            <QueryProviders>
+              <Sheetproviders />
+              <Toaster />
+              {children}
+            </QueryProviders>
           </ThemeProvider>
         </body>
       </html>
