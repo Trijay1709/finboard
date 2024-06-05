@@ -15,6 +15,20 @@
       "when": 1717272569210,
       "tag": "0001_unique_darkstar",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1717351704746,
+      "tag": "0002_abandoned_shatterstar",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "5",
+      "when": 1717351793038,
+      "tag": "0003_moaning_screwball",
+      "breakpoints": true
     }
   ]
 }
