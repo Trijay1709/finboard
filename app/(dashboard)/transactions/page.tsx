@@ -4,20 +4,31 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Loader2, Plus } from "lucide-react";
 import { ResponseType, columns } from "./columns";
 import { DataTable } from "@/components/table/data-table";
-import { useCategoryGet } from "@/features/categories/api/use-category-get";
 import { Skeleton } from "@/components/ui/skeleton";
-import { useCategoryBulkDelete } from "@/features/categories/api/use-category-bulk-delete";
 import { useNewTransaction } from "@/features/transactions/hooks/use-new-transaction";
+import { useTransactionGet } from "@/features/transactions/api/use-transactions-get";
+import { useTransactionBulkDelete } from "@/features/transactions/api/use-transactions-bulk-delete";
+
+enum VARIANTS {
+  LIST = "LIST",
+  IMPORT = "IMPORT",
+}
+
+const INITIAL_IMPORT_RESULTS = {
+  data: [],
+  errors: [],
+  meta: {},
+};
 
 const page = () => {
-  const categoryQuery = useCategoryGet();
-  const categoryData = categoryQuery.data || [];
-  const deleteCategory = useCategoryBulkDelete();
+  const transactionQuery = useTransactionGet();
+  const transactionsData = transactionQuery.data || [];
+  const deleteTransactions = useTransactionBulkDelete();
 
-  const isDisabled = categoryQuery.isLoading || deleteCategory.isPending;
+  const isDisabled = transactionQuery.isLoading || deleteTransactions.isPending;
   const { isOpen, onOpen } = useNewTransaction();
 
-  if (categoryQuery.isLoading) {
+  if (transactionQuery.isLoading) {
     return (
       <div className=" max-w-screen-2xl mx-auto  w-full pb-10 -mt-24">
         <Card className="border-none drop-shadow-sm ">
@@ -49,12 +60,12 @@ const page = () => {
           <DataTable
             onDelete={(rows) => {
               const ids = rows.map((r) => r.original.id);
-              deleteCategory.mutate({ ids });
+              deleteTransactions.mutate({ ids });
             }}
             columns={columns}
-            filterKey="name"
+            filterKey="payee"
             disabled={isDisabled}
-            data={categoryData}
+            data={transactionsData}
           />
         </CardContent>
       </Card>

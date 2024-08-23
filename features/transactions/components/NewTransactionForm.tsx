@@ -136,8 +136,8 @@ export const TransactionForm = ({
               <FormControl>
                 <Select
                   placeholder="Select Category"
-                  options={categoryOptions} // Assuming accountOptions was a mistake and you meant categoryOptions here
-                  onCreate={onCreateCategory} // Assuming onCreateAccount was a mistake and you meant onCreateCategory here
+                  options={categoryOptions}
+                  onCreate={onCreateCategory}
                   value={field.value}
                   onChange={field.onChange}
                   disabled={disabled}

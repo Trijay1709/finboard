@@ -77,7 +77,7 @@ function EditCategorySheet() {
       <Sheet open={isOpen} onOpenChange={onClose}>
         <SheetContent className="space-y-4">
           <SheetHeader>
-            <SheetTitle>Edit Account</SheetTitle>
+            <SheetTitle>Edit Category</SheetTitle>
           </SheetHeader>
           {!isLoading ? (
             <CategoryForm

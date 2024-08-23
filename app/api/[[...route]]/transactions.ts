@@ -46,12 +46,13 @@ const app = new Hono()
         ? parse(from, "yyyy-MM-dd", new Date())
         : defaultFrom;
       const endDate = to ? parse(to, "yyyy-MM-dd", new Date()) : defaultTo;
+      console.log("Request");
       const data = await db
         .select({
           id: transactions.id,
           date: transactions.date,
           category: categories.name,
-          categoryId: transactions.id,
+          categoryId: transactions.categoryId,
           payee: transactions.payee,
           amount: transactions.amount,
           notes: transactions.notes,
@@ -59,7 +60,7 @@ const app = new Hono()
           account: accounts.name,
         })
         .from(transactions)
-        .innerJoin(accounts, eq(transactions.id, accounts.id))
+        .innerJoin(accounts, eq(transactions.accountId, accounts.id))
         .leftJoin(categories, eq(transactions.categoryId, categories.id))
         .where(
           and(
@@ -70,6 +71,7 @@ const app = new Hono()
           )
         )
         .orderBy(desc(transactions.date));
+      console.log(data);
       return c.json({ data });
     }
   )
@@ -98,7 +100,7 @@ const app = new Hono()
         .select({
           id: transactions.id,
           date: transactions.date,
-          categoryId: transactions.id,
+          categoryId: transactions.categoryId,
           payee: transactions.payee,
           amount: transactions.amount,
           notes: transactions.notes,
@@ -175,10 +177,9 @@ const app = new Hono()
       console.log("Request");
       const insertValues = {
         ...values,
-        id: createId(), // Generate a unique ID for the transaction
+        id: createId(),
       };
 
-      // Insert the transaction into the database
       const [data] = await db
         .insert(transactions)
         .values(insertValues)
